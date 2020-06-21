@@ -1,0 +1,28 @@
+[package]
+name = "thiserror"
+version = "1.0.11"
+authors = ["David Tolnay <dtolnay@gmail.com>"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "derive(Error)"
+repository = "https://github.com/dtolnay/thiserror"
+documentation = "https://docs.rs/thiserror"
+categories = ["rust-patterns"]
+readme = "README.md"
+
+[badges]
+travis-ci = { repository = "dtolnay/thiserror" }
+
+[dependencies]
+thiserror-impl = { version = "=1.0.11", path = "impl", default-features = false }
+core-error = { git = "https://github.com/core-error/core-error", default-features = false }
+
+[dev-dependencies]
+anyhow = "1.0"
+ref-cast = "1.0"
+rustversion = "1.0"
+trybuild = { version = "1.0.19", features = ["diff"] }
+
+[features]
+default = ["std"]
+std = ["thiserror-impl/std", "core-error/std"]
